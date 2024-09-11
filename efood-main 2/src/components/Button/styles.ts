@@ -33,3 +33,45 @@ export const ButtonContainerLink = styled(Link)<ButtonProps>`
   ${baseStyleButton}
   text-decoration: none;
 `
+
+// Novo estilo para os campos de input com erro
+export const Error = styled.span`
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+`
+
+// Estilo para inputs com erro
+export const InputWithError = styled.input`
+  border: 1px solid red;
+  background-color: #ffe6e6;
+`
+
+// Exemplo de aplicação de InputWithError para inputs
+export const InputGroup = styled.div`
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid ${theme.Colors.border};
+    border-radius: 4px;
+
+    &:focus {
+      border-color: ${theme.Colors.primary};
+      outline: none;
+    }
+
+    &.error {
+      border-color: red;
+      background-color: #ffe6e6;
+    }
+  }
+`

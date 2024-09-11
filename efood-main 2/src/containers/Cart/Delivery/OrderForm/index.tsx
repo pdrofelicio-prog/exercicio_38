@@ -73,9 +73,9 @@ function OrderForm({ showNextForm, handleClick }: OrderFormProps) {
     }
   })
 
-  function checkInputHasError(fiedlName: string) {
-    const isTouched = fiedlName in form.touched
-    const isInvalid = fiedlName in form.errors
+  function checkInputHasError(fieldName: string) {
+    const isTouched = form.touched[fieldName]
+    const isInvalid = form.errors[fieldName]
     const hasError = isTouched && isInvalid
 
     return hasError
@@ -95,6 +95,7 @@ function OrderForm({ showNextForm, handleClick }: OrderFormProps) {
             onBlur={form.handleBlur}
             className={checkInputHasError('receiver') ? 'error' : ''}
           />
+          {checkInputHasError('receiver') && <S.Error>{form.errors.receiver}</S.Error>}
         </S.InputGroup>
 
         <S.InputGroup>
@@ -108,6 +109,7 @@ function OrderForm({ showNextForm, handleClick }: OrderFormProps) {
             onBlur={form.handleBlur}
             className={checkInputHasError('description') ? 'error' : ''}
           />
+          {checkInputHasError('description') && <S.Error>{form.errors.description}</S.Error>}
         </S.InputGroup>
 
         <S.InputGroup>
@@ -121,6 +123,7 @@ function OrderForm({ showNextForm, handleClick }: OrderFormProps) {
             onBlur={form.handleBlur}
             className={checkInputHasError('city') ? 'error' : ''}
           />
+          {checkInputHasError('city') && <S.Error>{form.errors.city}</S.Error>}
         </S.InputGroup>
 
         <S.InputContainer>
@@ -136,6 +139,7 @@ function OrderForm({ showNextForm, handleClick }: OrderFormProps) {
               onBlur={form.handleBlur}
               className={checkInputHasError('zipCode') ? 'error' : ''}
             />
+            {checkInputHasError('zipCode') && <S.Error>{form.errors.zipCode}</S.Error>}
           </S.InputGroup>
 
           <S.InputGroup>
@@ -149,6 +153,7 @@ function OrderForm({ showNextForm, handleClick }: OrderFormProps) {
               onBlur={form.handleBlur}
               className={checkInputHasError('number') ? 'error' : ''}
             />
+            {checkInputHasError('number') && <S.Error>{form.errors.number}</S.Error>}
           </S.InputGroup>
         </S.InputContainer>
 
@@ -180,6 +185,7 @@ function OrderForm({ showNextForm, handleClick }: OrderFormProps) {
             onBlur={form.handleBlur}
             className={checkInputHasError('name') ? 'error' : ''}
           />
+          {checkInputHasError('name') && <S.Error>{form.errors.name}</S.Error>}
         </S.InputGroup>
 
         <S.InputContainer>
@@ -195,6 +201,7 @@ function OrderForm({ showNextForm, handleClick }: OrderFormProps) {
               mask="9999 9999 9999 9999"
               className={checkInputHasError('cardNumber') ? 'error' : ''}
             />
+            {checkInputHasError('cardNumber') && <S.Error>{form.errors.cardNumber}</S.Error>}
           </S.InputGroup>
 
           <S.InputGroup>
@@ -209,6 +216,7 @@ function OrderForm({ showNextForm, handleClick }: OrderFormProps) {
               mask="999"
               className={checkInputHasError('code') ? 'error' : ''}
             />
+            {checkInputHasError('code') && <S.Error>{form.errors.code}</S.Error>}
           </S.InputGroup>
         </S.InputContainer>
 
@@ -225,6 +233,7 @@ function OrderForm({ showNextForm, handleClick }: OrderFormProps) {
               mask="99"
               className={checkInputHasError('month') ? 'error' : ''}
             />
+            {checkInputHasError('month') && <S.Error>{form.errors.month}</S.Error>}
           </S.InputGroup>
 
           <S.InputGroup>
@@ -239,6 +248,7 @@ function OrderForm({ showNextForm, handleClick }: OrderFormProps) {
               mask="99"
               className={checkInputHasError('year') ? 'error' : ''}
             />
+            {checkInputHasError('year') && <S.Error>{form.errors.year}</S.Error>}
           </S.InputGroup>
         </S.InputContainer>
       </S.FormContainer>
